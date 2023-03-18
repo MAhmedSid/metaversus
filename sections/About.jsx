@@ -1,13 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { TypingText } from "../components";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 import styles from "../styles";
 import { fadeIn, staggerContainer} from "../utils/motion";
 
-const About = () => (
-  <section className={`${styles.paddings} relative z-10`}>
+const About = () => { 
+
+  const MotionImage = motion(Image);
+  
+ return ( <section className={`${styles.paddings} relative z-10`}>
     <div className="gradient-02 z-0" />
     <motion.div
       variants={staggerContainer}
@@ -32,7 +36,9 @@ const About = () => (
         of the metaverse by scrolling down
       </motion.p>
 
-      <motion.img
+      <MotionImage
+      height={1000}
+      width={1000}
       variants={fadeIn('up', 'tween', 0.3, 1)}
       src= "/arrow-down.svg"
       alt="arrow down"
@@ -41,7 +47,7 @@ const About = () => (
       />
     </motion.div>
 
-  </section>
-);
+  </section>)
+};
 
 export default About;
