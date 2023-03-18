@@ -4,23 +4,25 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 import styles from "../styles";
-import { slideIn, staggerContainer, textVariant } from "../utils/motion";
+import { slideIn, textVariant } from "../utils/motion";
+
+import { fadeIn } from "../utils/motion";
 
 const Hero = () => (
   <section className={`${styles.yPaddings} sm:pl-16 pl-6`}>
     <motion.div
-      variants={staggerContainer}
+      variants={fadeIn("left", "tween", 0.2, 1)}
       initial="hidden"
       whileInView="show"
       className={`${styles.innerWidth} mx-auto flex flex-col`}
-      viewport={{ once: false, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.25 }}
     >
       <div className="flex justify-center items-center flex-col relative z-10">
-        <motion.h1 variants={textVariant(1.1)} className={styles.heroHeading}>
+        <motion.h1 variants={textVariant(0.5)} className={styles.heroHeading}>
           Metaverse
         </motion.h1>
         <motion.div
-          variants={textVariant(1.2)}
+          variants={textVariant(0.8)}
           className="flex flex-row justify-center items-center"
         >
           <h1 className={styles.heroHeading}>Ma</h1>
